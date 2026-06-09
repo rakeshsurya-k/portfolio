@@ -1,19 +1,36 @@
-let menu = document.querySelector('#menu-icon');
-let navbar = document.querySelector('.navbar');
-menu.onclick = () => {
-    menu.classList.toggle('bx-x');
-    navbar.classList.toggle('active');
-}
+// Mobile Menu Toggle
+const menuIcon = document.querySelector("#menu-icon");
+const navbar = document.querySelector(".navbar");
 
-window.onscroll = () => {
-    menu.classList.remove('bx-x');
-    navbar.classList.remove('active');
-}
+menuIcon.addEventListener("click", () => {
+menuIcon.classList.toggle("bx-x");
+navbar.classList.toggle("active");
+});
 
-const typed = new Typed('.multiple-text', {
-    strings: ['<i>Frontend Developer</i>', '<i>Backend Developer</i>'],
-    typeSpeed: 80,
-    backSpeed: 80,
-    backDelay: 1000,
-    loop: true,
-    });
+// Close Menu When Scrolling
+window.addEventListener("scroll", () => {
+menuIcon.classList.remove("bx-x");
+navbar.classList.remove("active");
+});
+
+// Close Menu When Clicking Navigation Links
+document.querySelectorAll(".navbar a").forEach(link => {
+link.addEventListener("click", () => {
+menuIcon.classList.remove("bx-x");
+navbar.classList.remove("active");
+});
+});
+
+// Typed.js Animation
+const typed = new Typed(".multiple-text", {
+strings: [
+"Frontend Developer",
+"Backend Developer",
+"Full Stack Developer",
+"Problem Solver"
+],
+typeSpeed: 80,
+backSpeed: 60,
+backDelay: 1200,
+loop: true
+});
